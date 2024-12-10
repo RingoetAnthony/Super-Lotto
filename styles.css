@@ -1,3 +1,4 @@
+/* Style général */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -23,7 +24,7 @@ h1 {
 
 input {
   display: block;
-  margin: 10px 35px;
+  margin: 10px auto;
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ccc;
@@ -35,14 +36,6 @@ input {
   grid-template-columns: repeat(2, 1fr);
   justify-content: center;
   margin: 20px 0;
-}
-
-.input-container input {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
 }
 
 button {
@@ -96,14 +89,6 @@ button:hover {
   color: #007bff;
 }
 
-.input-section {
-  margin-top: 20px;
-}
-
-.input-section p {
-  font-size: 20px;
-}
-
 .input-section input {
   width: 200px;
   padding: 10px;
@@ -138,4 +123,51 @@ button:hover {
 
 .footer p {
   margin: 5px;
+}
+/* Style pour le rectangle WINNER */
+#winnerBanner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 1200px;
+  height: 300px;
+  background-color: #24e42b;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  font-weight: bold;
+  border-radius: 10px;
+  opacity: 0;
+  z-index: 1000;
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+/* Texte clignotant */
+#winnerBanner p {
+  animation: blinkText 2s infinite;
+  font-size: 200px;
+}
+
+@keyframes blinkText {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Classe pour afficher le rectangle */
+#winnerBanner.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#winnerBanner.hide {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
 }
