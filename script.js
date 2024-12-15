@@ -23,13 +23,10 @@ document.getElementById("playButton").addEventListener("click", () => {
     return;
   }
 
-  // Génération des numéros gagnants
   const lottoNumbers = generateRandomNumbers(4, 9);
 
-  // Comparaison des numéros
   const matches = compareNumbers(userNumbers, lottoNumbers);
 
-  // Affichage des résultats
   document.getElementById(
     "lottoNumbers"
   ).textContent = `Numéros gagnants : ${lottoNumbers.join(", ")}`;
@@ -38,7 +35,6 @@ document.getElementById("playButton").addEventListener("click", () => {
       ? `Vos correspondances : ${matches.sort((a, b) => a - b).join(", ")}`
       : "Vos correspondances : Aucune";
 
-  // Affichage du rectangle WINNER si tous les chiffres correspondent
   if (
     matches.length === 4 &&
     matches.every((num) => lottoNumbers.includes(num))
@@ -46,12 +42,10 @@ document.getElementById("playButton").addEventListener("click", () => {
     showWinnerBanner();
   }
 
-  // Ajout de 10 000 000 Gold à chaque clic sur "Jouer"
   currentGold += 10000000;
   updateGoldDisplay();
 });
 
-// Fonction pour afficher le rectangle WINNER
 function showWinnerBanner() {
   const banner = document.getElementById("winnerBanner");
 
@@ -64,7 +58,6 @@ function showWinnerBanner() {
   }, 8000);
 }
 
-// Gestion du Gold
 let currentGold = 1000000000;
 
 function updateGoldDisplay() {
@@ -87,5 +80,4 @@ document.getElementById("addGoldButton").addEventListener("click", () => {
   goldInput.value = "";
 });
 
-// Initialisation de l'affichage du montant Gold
 updateGoldDisplay();
